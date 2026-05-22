@@ -625,31 +625,31 @@ article {
 .theme-temu {
   --yellow: #ffb86b;
   --blue: #ff6a00;
-  --blue-dark: #2b1110;
-  --surface: #120b0b;
-  --soft: #1d1111;
-  --muted: #d7c6bc;
+  --blue-dark: #2a1708;
+  --surface: #101010;
+  --soft: #171412;
+  --muted: #d8c8ba;
   background:
-    radial-gradient(circle at top left, rgba(255, 106, 0, 0.12), transparent 32%),
-    radial-gradient(circle at bottom right, rgba(127, 29, 29, 0.18), transparent 36%),
-    #070404;
+    radial-gradient(circle at top left, rgba(255, 106, 0, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(245, 158, 11, 0.12), transparent 38%),
+    #080807;
 }
 
 .theme-temu .slide {
   background:
-    linear-gradient(135deg, rgba(24, 12, 12, 0.99), rgba(52, 16, 12, 0.97)),
+    linear-gradient(135deg, rgba(16, 16, 16, 0.99), rgba(32, 24, 17, 0.97)),
     var(--surface);
-  border-color: rgba(255, 184, 107, 0.2);
+  border-color: rgba(255, 184, 107, 0.22);
 }
 
 .theme-temu .slide::before {
-  background: linear-gradient(90deg, #ff6a00, #ef4444, #ffb86b);
+  background: linear-gradient(90deg, #ff6a00, #f59e0b, #ffcf8a);
 }
 
 .theme-temu .cover {
   background:
-    linear-gradient(120deg, rgba(24, 12, 12, 0.99), rgba(52, 16, 12, 0.96) 58%, rgba(255, 106, 0, 0.16)),
-    #180c0c;
+    linear-gradient(120deg, rgba(16, 16, 16, 0.99), rgba(33, 26, 18, 0.96) 58%, rgba(255, 106, 0, 0.18)),
+    #101010;
 }
 
 .theme-temu .brand-row,
@@ -669,12 +669,12 @@ article {
 
 .theme-temu .brand-mark {
   color: #ffffff;
-  background: linear-gradient(135deg, #ff6a00, #ef4444);
+  background: linear-gradient(135deg, #ff6a00, #f59e0b);
 }
 
 .theme-temu article {
-  background: rgba(27, 15, 15, 0.94);
-  border-color: rgba(255, 184, 107, 0.16);
+  background: rgba(23, 20, 18, 0.95);
+  border-color: rgba(255, 184, 107, 0.18);
 }
 
 .theme-temu .problem {
@@ -694,13 +694,24 @@ article {
 .theme-temu .print-box {
   color: #d7c6bc;
   background:
-    linear-gradient(135deg, rgba(255, 184, 107, 0.1), rgba(255, 106, 0, 0.04)),
-    #1a0d0d;
+    linear-gradient(135deg, rgba(255, 184, 107, 0.11), rgba(255, 106, 0, 0.04)),
+    #15120f;
   border-color: rgba(255, 184, 107, 0.36);
 }
 
+.theme-temu .image-zoom {
+  background: rgba(10, 9, 8, 0.68);
+  backdrop-filter: blur(12px);
+}
+
+.theme-temu .image-zoom img {
+  border-color: rgba(255, 184, 107, 0.58);
+  background: rgba(15, 13, 11, 0.42);
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.72);
+}
+
 .theme-temu .controls {
-  background: rgba(31, 17, 16, 0.94);
+  background: rgba(18, 16, 14, 0.94);
   border-color: rgba(254, 215, 170, 0.22);
 }
 
