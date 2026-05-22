@@ -276,6 +276,9 @@ article {
   text-align: center;
   font-size: clamp(30px, 4vw, 48px);
   font-weight: 800;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
 }
 
 .print-box img {
@@ -289,6 +292,36 @@ article {
   box-shadow:
     0 16px 40px rgba(0, 0, 0, 0.34),
     0 0 0 1px rgba(186, 230, 253, 0.24);
+  transform-origin: center center;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+  cursor: zoom-in;
+  position: relative;
+  z-index: 3;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .print-box:hover {
+    z-index: 15;
+  }
+
+  .print-box img:hover {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    width: min(86vw, 1380px);
+    height: min(82vh, 780px);
+    max-height: 82vh;
+    transform: translate(-50%, -50%);
+    border-color: rgba(186, 230, 253, 0.72);
+    background: #102436;
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.62),
+      0 0 0 1px rgba(186, 230, 253, 0.5);
+    cursor: zoom-out;
+    z-index: 100;
+  }
 }
 
 .print-box span {
@@ -713,6 +746,7 @@ article {
   left: 50%;
   bottom: 8px;
   transform: translateX(-50%);
+  z-index: 20;
   display: flex;
   align-items: center;
   gap: 16px;
