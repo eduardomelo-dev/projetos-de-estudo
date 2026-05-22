@@ -302,28 +302,6 @@ article {
   z-index: 3;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .print-box:hover {
-    z-index: 15;
-  }
-
-  .print-box img:hover {
-    position: fixed;
-    inset: 50% auto auto 50%;
-    width: min(86vw, 1380px);
-    height: min(82vh, 780px);
-    max-height: 82vh;
-    transform: translate(-50%, -50%);
-    border-color: rgba(186, 230, 253, 0.72);
-    background: #102436;
-    box-shadow:
-      0 30px 90px rgba(0, 0, 0, 0.62),
-      0 0 0 1px rgba(186, 230, 253, 0.5);
-    cursor: zoom-out;
-    z-index: 100;
-  }
-}
-
 .print-box span {
   display: block;
   max-width: 100%;
@@ -332,6 +310,32 @@ article {
   font-weight: 600;
   color: var(--ink);
   text-align: center;
+}
+
+.image-zoom {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  padding: 4vh 4vw;
+  background: rgba(2, 8, 15, 0.82);
+  backdrop-filter: blur(4px);
+  cursor: zoom-out;
+}
+
+.image-zoom.active {
+  display: grid;
+}
+
+.image-zoom img {
+  width: min(92vw, 1500px);
+  height: min(86vh, 820px);
+  object-fit: contain;
+  border: 4px solid rgba(186, 230, 253, 0.76);
+  border-radius: 8px;
+  background: #102436;
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.68);
 }
 
 .pill-list {
@@ -1311,7 +1315,14 @@ article {
       const counter = document.getElementById("counter");
       const prev = document.getElementById("prev");
       const next = document.getElementById("next");
+      const zoomLayer = document.createElement("div");
+      const zoomImage = document.createElement("img");
       let current = 0;
+
+      zoomLayer.className = "image-zoom";
+      zoomLayer.setAttribute("aria-hidden", "true");
+      zoomLayer.appendChild(zoomImage);
+      document.body.appendChild(zoomLayer);
 
       function showSlide(index) {
         current = Math.max(0, Math.min(index, slides.length - 1));
@@ -1329,7 +1340,25 @@ article {
         if (event.key === "ArrowRight" || event.key === " ")
           showSlide(current + 1);
         if (event.key === "ArrowLeft") showSlide(current - 1);
+        if (event.key === "Escape") closeZoom();
       });
+
+      document.querySelectorAll(".print-box img").forEach((image) => {
+        image.addEventListener("click", () => {
+          zoomImage.src = image.src;
+          zoomImage.alt = image.alt;
+          zoomLayer.classList.add("active");
+          zoomLayer.setAttribute("aria-hidden", "false");
+        });
+      });
+
+      function closeZoom() {
+        zoomLayer.classList.remove("active");
+        zoomLayer.setAttribute("aria-hidden", "true");
+        zoomImage.removeAttribute("src");
+      }
+
+      zoomLayer.addEventListener("click", closeZoom);
 
       showSlide(0);
     </script>
