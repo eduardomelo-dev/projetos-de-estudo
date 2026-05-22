@@ -72,6 +72,29 @@ body {
     #111827;
 }
 
+.final-slide .cover-content {
+  max-width: 980px;
+}
+
+.final-slide h1 {
+  font-size: clamp(54px, 7vw, 104px);
+}
+
+.final-message {
+  position: absolute;
+  left: clamp(24px, 3vw, 44px);
+  right: clamp(24px, 3vw, 44px);
+  bottom: clamp(24px, 3vw, 44px);
+  padding: 24px;
+  background: rgba(34, 197, 94, 0.13);
+  border: 1px solid rgba(186, 230, 253, 0.25);
+  border-radius: 8px;
+}
+
+.final-message p {
+  margin-bottom: 0;
+}
+
 .brand-row {
   display: flex;
   align-items: center;
@@ -1302,11 +1325,27 @@ article {
           <li>Material da disciplina de Interação Humano-Computador</li>
         </ul>
       </section>
+
+      <section class="slide cover final-slide">
+        <div class="brand-row">
+          <span class="brand-mark">RN</span>
+          <span>DETRAN RN</span>
+        </div>
+        <div class="cover-content">
+          <p class="kicker">Slide 13</p>
+          <h1>Fim da apresentação</h1>
+          <p class="subtitle">Obrigado pela atenção.</p>
+        </div>
+        <div class="final-message">
+          <h3>Auditoria de Usabilidade</h3>
+          <p>Heurísticas de Nielsen aplicadas ao Portal de Serviços DETRAN/RN.</p>
+        </div>
+      </section>
     </main>
 
     <nav class="controls" aria-label="Controles da apresentação">
       <button id="prev" type="button" aria-label="Slide anterior">‹</button>
-      <span id="counter">1 / 12</span>
+      <span id="counter">1 / 13</span>
       <button id="next" type="button" aria-label="Próximo slide">›</button>
     </nav>
 
